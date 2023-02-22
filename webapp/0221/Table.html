@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#tab1{
+border: 5px double green;
+/* width: 600px; */
+/* margin: 40px; 4방향 여백을 똑같이 */
+/* margin-top: 50px; => 방향별 여백을 따로 지정가능 */
+width: 95%;
+margin: 15px;
+margin-top: 30px;
+
+}
+td{
+/* width : 300px;*/
+	height: 75px;
+}
+th{
+	height: 35px;
+	/*width: 350px; */
+	/*width: 100%; => 화면 비율에 맞춰서 크기지정*/
+	text-align: center;
+	color: rgb(66, 80, 41);
+	background-color: rgb(144, 205, 162);
+}
+#tab2{
+	border: 5px double rgb(62, 62, 157);
+	border-collapse: collapse;/*테이블 내부 경계선 합치기*/
+	width: 95%;
+	margin: 15px;
+	margin-top: 30px;
+}
+#tab2 th{
+	background-color: rgb(125, 157, 217);
+
+}
+#tab3{
+	/* width: 95%; */
+	margin: 15px;
+	margin-top: 30px;
+	border-spacing: 10px;
+}
+#tab3 td{
+	width: 200px;
+}
+
+#tab4 {
+	border:5px solid rgb(181, 148, 212);
+	width: 95%;
+	margin: 15px;
+	margin-top: 30px;
+	border-spacing: 5px;
+}
+#tab4 th{
+	border-bottom: 3px solid rgb(255, 217, 0);
+	border-top: 3px solid rgb(255, 217, 0);
+	background-color: rgb(196, 173, 218);
+}
+</style>
+</head>
+<body>
+<table border="1" id="tab1">
+<tr>
+	<th><strong>제목1</strong></th>
+	<th>제목2</th>
+	<th>제목3</th>
+</tr>
+<tr>
+	<td>1.<br> 2.</td>
+	<td>2</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+</tr>
+<table border="1" id="tab2">
+	<tr>
+		<th><strong>제목1</strong></th>
+		<th>제목2</th>
+		<th>제목3</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<table border="1" id="tab3">
+		<tr>
+			<th><strong>제목1</strong></th>
+			<th>제목2</th>
+			<th>제목3</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+
+		<table border="1" id="tab4">
+			<tr>
+				<th><strong>제목1</strong></th>
+				<th>제목2</th>
+				<th>제목3</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+
+</table>
+</body>
+</html>
