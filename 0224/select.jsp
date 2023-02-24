@@ -6,58 +6,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-table{
+	table {
 	border: 1px solid blue;
+	width: 300px;
+	height: 400px;
+	margin: auto;
+	text-align: center;
 }
-td{
-	width: 200px;
-	height: 50px;
-}
-
+	
 </style>
 </head>
 <body>
-<%
+	<%
 	request.setCharacterEncoding("UTF-8");
 	
-	String userId = request.getParameter("id");
-	String userPw = request.getParameter("pw");
-	String userGender = request.getParameter("gender");
-	String userfile = request.getParameter("file");
+	String id= request.getParameter("id");
+	String name= request.getParameter("name");
+	String food = request.getParameter("food");
 	
 	String foods[] = request.getParameterValues("foods");
-	
 	String str = "";
 	for(String ss : foods){
 		str += ss+"<br>";
 	}
-	//db연결 - crud처리 - 결과값 생성
-%>
-
-<table border="1">
+	%>
+	<table border="1">
 <tr>
  <td>아이디</td>
- <td><%=userId  %> </td>
+ <td><%=id  %> </td>
 </tr>
 
 <tr>
- <td>비밀번호</td>
- <td><%=userPw %></td>
+ <td>name</td>
+ <td><%=name %></td>
 </tr>
 
 <tr>
- <td>성별</td>
- <td><%= userGender %></td>
+ <td>가장좋아하는 음식</td>
+ <td><%= food %></td>
 </tr>
 
 <tr>
- <td>좋아하는 음식</td>
+ <td>좋아하는 음식들</td>
  <td><%= str %></td>
-</tr>
-
-<tr>
- <td>첨부파일</td>
- <td><%= userfile %></td>
 </tr>
 
 </table>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function proc1() {
+	//html요소에 접근검색
+	var a = document.querySelector('#price');
+	var b = document.querySelector('#qty');
+	//입력한 값을 가져옴
+	var avalue = a.value;
+	var bvalue = b.value;
+	//계산
+	var res = avalue*bvalue;
+	//출력 => id=result를 검색 => innerHTML / innerText
+	var result = document.querySelector('#result');
+	result.innerText = res;
+	result.innerHTML = "<h2>" + res +"</h2>";
+}
+</script>
+<style type="text/css">
+#result{
+border: 2px dotted gold;
+height: 100px;
+}
+</style>
+</head>
+<body>
+<form action="">
+	물품가격<input type="text" name="price" id="price"><br>
+	물품수량<input type="text" name="qty" id="qty"><br>
+	<br>
+	
+	<input type="button" value="확인" onclick="proc1()"><br>
+	
+	<br>
+	<br>
+	<h1>결과값</h1>
+	<div id="result"> </div>
+	<input type="image" src="D:\A_TeachingMetereal\webpro\webpr\src\main\webapp\imiges.sw_on.png" alt="zxc.png">
+	
+</form>
+</body>
+</html>
