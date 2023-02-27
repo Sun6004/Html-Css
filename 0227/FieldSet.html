@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function changeCol() {
+	//color 인 html요소로 접근 검색
+	var colele = document.ff.col;
+	//값을 가져온다
+	var colval = colele.value;
+	//배경색을 변경
+	//form 검색
+	var ffele = document.ff
+	//document.querySelector('form')
+	//document.getElementsByTagName('form')
+	
+	//검색form요소의 배경색을 바꾼다.
+	ffele.style.backgroundColor = colval;
+}
+</script>
+
+<style type="text/css">
+label{
+display : inline-block;
+width: 100px;
+height: 30px;
+}
+.gend{
+width: 50px;
+
+}
+.gendf{
+width: 50px;
+margin-left: 50px;
+}
+</style>
+</head>
+<body>
+<form name="ff" action="fieldset.jsp" method="post">
+	<fieldset>
+		<legend> 개인정보</legend>
+		
+		<label for = "id">아이디</label>
+		<input type="text" name = "id" id= "id" value="봐꾸고싶지? "readonly="readonly">
+		<br>
+		<label for = "ㅜ믇">이름</label>
+		<input type="text" name = "name" id= "name" required="required">
+		<br>
+		<label for = "pw">비밀번호</label>
+		<input type="text" name = "pw" id= "pw">
+		<br>
+		
+		
+		<label>전화번호</label>
+		<input type="text" name = "tel" pattern="\d{3}-\d{4}-\d{4}">
+		<input type="tel" name = "tel" >
+		<br>
+		
+		<label>주소</label>
+		<input type="text" name = "addr" >
+		<br>
+	
+		<label>이메일</label>
+		<input type="email" name = "mail" title="@naver.com" title ="@google.com">
+		<br>
+		<label>생일</label>
+		<input type="date" name = "bir">
+		<br>
+	
+		<label>성별</label>
+		<input type="radio" name = "gender" value="남성">남성
+		<input type="radio" name = "gender" value="여성">여성
+		<br>
+		
+		<label class="gend">남성</label>
+		<input type="radio" name = "gender2" value="남성">
+		<label class="gendf" >여성</label>
+		<input type="radio" name = "gender2" value="여성">
+		<br>
+		<label>사이즈</label>
+		<input type="number" min = "230" max="290" step="5" value="250">
+		<br>
+		<label>사이즈(230~290)</label>
+		<input type="range" min = "230" max="290" step="5" value="250">
+		<br>
+		
+		<label>웹페이지</label>
+		<input type="url" name="url">
+		
+		
+		
+	</fieldset>
+	<input type="submit">
+		<label>색상</label>
+	<input type="color" name = "col" onchange="changeCol()">
+	<br>
+</form>
+</body>
+</html>
