@@ -1,0 +1,10 @@
+utf-8세팅 
+서버세팅 Tomcat - 버전 8.5.85 - 64bit 다운
+압축풀기
+이클립스 안에서 서버연동
+ window - preperences - server 검색 - runtime envirunment - add - 톰캣폴더 apply
+
+이클립스의 servers탭에서 new server 링크 클릭 - tomcat8.5선택 -
+
+이클립스의 왼쪽메뉴 - Servers - server.xml - source의 63line webport = "80" URIEncoding="UTF-8"
+
