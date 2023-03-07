@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function proc1(op) {
+	//this; proc1()함수를 호출한 button객체
+}
+
+proc1 = (op) => {
+	//this : 람다함수, 현재 함수자체	
+	
+	//입력한 값 가져오기 - id검색 -value
+	fvalue = (document.getElementById('f').value);
+	svalue = (document.getElementById('s').value);
+	
+	a = window.isNaN(fvalue);
+	b = window.isNaN(svalue);
+	
+	// 정규식	=> /^ $/
+	freg = /^[0~9]+$/;
+	sreg = /^[0~9]+$/;
+ 	
+	if(freg.test(fvalue) && reg.test(svalue)){
+		alert(올바른데이터)	
+		}else{
+			alert(올바르지않은데이터);
+		}
+	}
+	add = () =>{
+		return parseInt(fvalue)
+	}
+	//op비교
+	/* switch (op) {
+	case '+':
+		res = add();
+		break;
+	case '-':
+		res = mi();
+		break;
+	case '*':
+		res = x();
+		break;
+	case '/':
+		res = div();
+		break;
+
+	default:
+		break;
+	}
+	
+}
+
+add = () => {
+	return fvalue + svalue;
+}
+mi = () => {
+	return fvalue - svalue;
+}
+x = () => {
+	return fvalue * svalue;
+}
+div = () => {
+	return fvalue / svalue;
+}
+
+	//출력
+	document.getElementById('result').innerHTML = res; */
+	
+
+</script>
+</head>
+<body>
+<div class="box">
+	<p>
+	첫번째 수 <input type="text" id="f" pattern="[0~9]"> <br>
+	두번째 수 <input type="text" id="s" pattern="[0~9]"> <br>
+	</p>
+	<br>
+	
+	<input type="button" value="+" onclick="proc1('+')">
+	<input type="button" value="-" onclick="proc1('-')">
+	<input type="button" value="*" onclick="proc1('*')">
+	<input type="button" value="/" onclick="proc1('/')">
+	
+	</div>
+결과 <br>
+<input type="text" id="result"><br>
+</body>
+</html>

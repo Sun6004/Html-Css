@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script type="text/javascript">
+
+proc1 = () => {
+	str ="";
+	
+	while(true){
+		//input
+		num = prompt("구구단 입력");
+		
+		nreg = /^[0-9]+&/
+		
+		if(!(nreg.test(num))) return;
+		
+		str += `*** ${num} 단 ***<br>`;
+		//9x9dan - for(1~9)
+		for(i=1; i<10; i++){
+			str += `${num}*${i}=${num*i}<br>`;
+		}
+		//출력
+		document.getElementById('r1').innerHTML = str;
+		
+		//continue? ok(true) / exit(false)
+		yn = window.confirm("continue?");
+		
+		if(!yn) break;
+	}
+	//출력
+}
+
+</script>
+</head>
+<body>
+
+<div class="box">
+<p>
+ok버튼 클릭시 구구단수 를 입력하여 구구단출력 <br>
+반복해서 수행하는데 계속 할까요?? -confirm()함수를 사용하여 취소버튼을 클릭하면 종료
+</p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+
+</body>
+</html>

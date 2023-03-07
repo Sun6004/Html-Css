@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+
+<script type="text/javascript">
+var rect = {
+		width: 12,
+		height: 9,
+		
+		getArea(){
+			return this.width * this.height;
+		},
+		getCircum(){
+			return (this.width + this.height) *2;
+		}
+/* 		getArea : function(){
+			
+		},
+		getCircum : function(){
+			
+			
+		} */	
+}
+let proc1 = () =>{
+	
+	rect.name = "사각형";
+	
+	str = `가로 : ${rect.width} <br>`;
+	str += `세로 : ${rect.height} <br>`;
+	str += `이름 : ${rect.name} <br>`;
+	str += `면적 : ${rect.getArea()} <br>`;
+	str += `둘레 : ${rect.getCircum()} <br>`;
+	
+	document.getElementById('r1').innerHTML = str;
+}
+	
+</script>
+</head>
+<body>
+
+<div class="box">
+<p>리터럴 방식의 Rect객체 <br>
+속성: width, height <br>
+메소드: getArea(),getCircum() <br>
+</p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+</body>
+</html>
