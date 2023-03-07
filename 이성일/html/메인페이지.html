@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	aside,section,footer,article	{
+	      
+	       box-sizing:border-box; 
+	        padding:20px;
+	        margin :3px;
+	}
+	header{	
+		height:60px;
+		background: rgb(239,239,239);	
+	}
+	#shopping{
+	width: 70px;
+	height: 60px;
+	float: left;
+	margin-left: 30px;
+	}
+	
+	nav{
+		border-bottom: 2px dotted olive;
+		border-top: 2px dotted olive;
+		width:100%;
+		height:30px;
+		background:white;
+		margin-bottom:10px;
+		padding: 20px;
+		margin: 4px;
+	}
+	
+ 	nav{
+ 	text-align:center;
+ 	color: blue;
+ 	border:2px dotted black;
+ 	border-left: none;
+ 	border-right: none;
+ 
+ 	}
+	nav ul {
+	list-style:none; padding:0; margin:0;
+	}
+	nav ul li{
+	display:inline-block; 
+	margin:2px 30px;
+	}
+	nav ul li a{
+	color:white; 
+	font-weight:bold;
+	 font-size:22px; 
+	 text-decoration:none;
+	 }
+	nav ul li a:visited{
+	color:blue;
+	}
+	nav ul li a:hover{
+	background: rgb(96,96,96); color:white;
+	}
+	
+	a2{
+	
+	}
+
+	#container{
+	  display : flex;
+	  height : 650px;
+	}
+		
+	#right{
+	flex: 10%;
+	}
+	
+	footer{		
+		height:60px;
+		background:black;
+		margin-top:10px;
+		text-align:center;
+		color: white;
+	}
+
+	h1{
+	text-align: center;
+	font-size: 40px;
+	}
+
+#main{
+width: 98%;
+height: 500px;
+display: flex;
+}
+#a1{
+	flex: 17%;
+	flex-shrink : 2;
+	height:100%;
+	background: rgb(111,117,144);		
+}
+#center{
+flex: 69%;
+height: 80%;
+background-color: white;
+text-align: center;
+}
+#com1, #com2, #com3, #com4{
+border: 2px solid gray;
+float: left;
+width: 23%;
+height: 300px;
+margin: 4px;
+}
+img{
+width: 150px;
+height: 200px;
+margin: 2px;
+}
+#a2{
+flex: 14%;
+height: 100%;
+background-color: rgb(223,223,223);
+text-align: left;
+}
+button{
+	display: inline-block;
+}
+li {
+	list-style: none;
+}
+</style>
+</head>
+<body>
+	<h1>Shopping Mall</h1>
+<header>
+	<img id="shopping" alt="shopping.jpg" src="../images/shopping.jpg">
+<h2><strong> &nbsp; &nbsp;Web Shopping</strong></h2>
+
+</header>
+
+<nav>
+	<ul>
+		<li><a href="" >Home</a></li>
+		<li><a href="">Shopping About</a></li>
+		<li><a href="">News</a></li>
+		<li><a href="">My Account</a></li>
+		<li><a href="">Contacts</a></li>
+	</ul>
+</nav>
+<div id="main">
+
+	<aside id="a1">
+	<div>
+		<ul>
+			<li><a href="../html/컴퓨터.html" target="_blank">컴퓨터</a></li>
+			<br>
+			<li><a href="../html/옷.html" target="_blank">의류</a></li>
+			<br>
+			<li><a href="../html/음악.html" target="_blank">음악</a></li>
+			<br>
+			<li><a href="">영화</a></li>
+			<br>
+			<li><a href="">스포츠/레저</a></li>
+			<br>
+			<li><a href="">가구/인테리어</a></li>
+			<br>
+			<li><a href="">식품</a></li>
+		</ul>
+	</div>
+	</aside>
+	
+<div id="center">
+	<div id="com1"><img alt="컴퓨터1.jpg" src="../images/컴퓨터1.jpg"> <br>
+	 한성컴퓨터 <br>
+	 <input type="button" value="쇼핑하러가기">
+	</div>
+	<div id="com2"><img alt="컴퓨터2.jpg" src="../images/컴퓨터2.jpg"><br>
+	노트북 <br>
+	<input type="button" value="쇼핑하러가기">
+	</div>ㄴ
+	<div id="com3"><img alt="컴퓨터3.jpg" src="../images/컴퓨터3.jpg"><br>
+	맥북 <br>
+	<input type="button" value="쇼핑하러가기">
+	</div>
+	<div id="com4"><img alt="컴퓨터4.jpg" src="../images/컴퓨터4.jpg"><br>
+	지존컴퓨터<br>
+	<input type="button" value="쇼핑하러가기">
+	</div>
+
+</div>
+
+<aside id="a2">
+	<div>
+		<ul>
+		<li> <h3>Shopping Cart <br></h3> </li> ㄴ
+		<li> 현재 쇼핑카드에 물품이 없습니다. <br> </li>
+		<li><a href="">쇼핑카트보기</a> <br></li>
+		<li> <h3>Log In <br> </h3> </li>
+		<li> 아이디: <input id="" type="text"> </li>
+		<li> 비밀번호: <input id="" type="text"> </li>
+		<li><input type="button" value="로그인"> <input type="reset" value="초기화"></li>
+		<li> <a href="../html/회원가입.html">회원가입</a> <a href="">비밀번호분실</a> </li>
+		</ul>
+	</div>
+
+</aside>
+</div>
+
+<footer>Copyright (c)2019 Hong</footer>
+
+</body>
+</html>

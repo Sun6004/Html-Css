@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 회원가입페이지</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style type="text/css">
+	h2{
+	text-align: center;
+	}
+	form {
+	background: lightgray;
+}
+</style>
+</head>
+<body>
+<h2>회원가입</h2>
+	<form action="">
+	<fieldset>
+		<label for="username">아이디:</label>
+		<input type="text" id="username" name="username"><br>
+
+		<label for="password">비밀번호:</label>
+		<input type="password" id="pw" name="password"><br>
+		
+		<label for="password">비밀번호확인:</label>
+		<input type="password" id="pw2" name="password"><br>
+		
+		<label>성별</label>
+		<input type="radio" name = "gender" value="남성">Male
+		<input type="radio" name = "gender" value="여성">Female
+		<br>
+		<br>
+		
+		<label for = "addr">주소</label>
+		<input type="text" name = "addr" id= "addr"><br>
+
+		<label for="email">이메일:</label>
+		<input type="email" id="email" name="email"><br>
+
+		<label for="phone">전화번호:</label>
+		<input type="tel" id="tel" name="phone"><br>
+
+		<input type="submit" value="회원가입">
+		<input type="button" value="이전페이지">
+		<input type="reset" value = "초기화">
+	</fieldset>
+	</form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+label{
+display : inline-block;
+width: 80px;
+height: 0px;
+}
+fieldset{
+border: 1px solid black;
+}
+form {
+	width: 40%;
+	margin: auto;
+}
