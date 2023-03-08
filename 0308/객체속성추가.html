@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+
+<script type="text/javascript">
+
+
+let rect = {} //객체선언(빈 객체)
+
+proc1 = () => {
+	//빈 객체에 속성추가
+	rect.width = 34;
+	rect.height = 25;
+	rect.name = " 사각형";
+	
+	//빈 객체에 메소드추가
+	rect.getArea = function(){
+		return this.width * this.height;
+	};
+	
+	rect.getCircum = function(){
+		return (parseInt(this.width) + parseInt(this.height))*2;
+	};
+	
+	str = `가로 : ${rect.width} <br>`;
+	str += `세로 : ${rect.height} <br>`;
+	str += `이름 : ${rect.name} <br>`;
+	str += `면적 : ${rect.getArea()} <br>`;
+	str += `둘레 : ${rect.getCircum()} <br>`;
+	
+	document.getElementById('r1').innerHTML = str;	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+<p></p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+</body>
+</html>

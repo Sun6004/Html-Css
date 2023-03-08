@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script src="../js/rectPrint.js"></script>
+<script type="text/javascript">
+
+//객체 함수 선언 정의
+function MyRect(width, height){
+	this.width = width;
+	this.height = height;
+	
+	this.getArea = function(){
+		return this.width * this.height;
+	};
+	
+	this.getCircum = function(){
+		return (parseInt(this.width) + parseInt(this.height))*2;
+	};
+	
+}
+
+proc1 = () => {
+	
+	//객체생성
+	my = new MyRect(12,45);
+	
+	my.name = "fuck";
+	
+	printInfo(my, 'r1');
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+<p>빈 객체 선언 let rect={} <br>
+선언 후 속성과 메소드를 추가 <br>
+정보출력 - 외부 스크립트를 이용 <br>
+&lt;script src="../js/rectPrint.js"> &lt;/script>
+</p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+</body>
+</html>
