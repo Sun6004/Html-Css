@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script type="text/javascript">
+
+proc1 = () =>{
+	//배열선언
+	const arr = []; //지역변수
+	//const arr = new Array();
+	
+	flag = true;
+	while(true){
+		//입력
+		uName = prompt("이름입력");
+		
+		//입력값 비교 - break;
+		if(uName != null){
+			if(uName.trim().length < 1) flag = false; //.trim() => 앞뒤의 공백 제거	
+		}
+		if(uName == null) flag = false;
+			
+		if(!flag) break;
+		
+		//배열에 저장
+		arr.push(uName);
+	}
+	//출력
+	document.getElementById('r1').innerHTML = arr;	
+}
+
+proc2 = () => {
+	const num = new Array();
+	
+	while(true){
+		//입력
+		n = prompt("정수 5개 입력");
+		
+		//입력값 비교 - indexOf() -1일때 배열에 저장한다
+		idx = num.indexOf(n);
+		if(idx == -1) num.push(n);
+		
+		//배열개수비교 - break;
+		if(num.length >= 5) break;
+	}
+	document.getElementById('r2').innerHTML = num;	
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+<p>prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고
+출력하는 프로그램 <br>
+ -입력의 마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로
+한다. <br>
+ </p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+
+<div class="box">
+<p>서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램<br>
+</p>
+
+<input type="button" value="ok" onclick="proc2()">
+<br>
+<br>
+<div class="result" id="r2"></div>
+</div>
+</body>
+</html>
