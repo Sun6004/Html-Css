@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+
+<script type="text/javascript">
+
+proc1 = () =>{
+	//입력
+	ip = prompt("주민등록번호를 입력하시오.");
+	
+	//각 자리별로 추출하기
+	yy = ip.substring(0,2);
+	mm = ip.substring(2,2);
+	dd = ip.substring(4,2);
+	
+	ygend = ip.substring(0,1);
+	
+	//비교 - ygend성별 구하기
+	if(ygend == "1" || ygend =="3"){
+		gender = "남자";
+	} else{
+		gender = "여자";
+	}
+	
+	//연도 비교 1900/2000 
+	if(ygend == "1" || ygend == "2"){
+		byy = "19";
+	}else{
+		byy = "20";
+	}
+	
+	//생년월일
+	bir = (yy)+"년 "+mm+"월 "+dd+"일 ";
+	
+	//나이
+	d = new Date();
+	year = d.getFullYear();
+	age = year - parseInt(byy + yy) + 1;
+	
+	//출력
+	str	= ip.slice(0,8)+"******";
+	str += "생년월일: "+ bir;
+	str += "나이: " + age;
+	str += "성별: " + gender;
+	
+	document.getElementById('r1').innerHTML = str;
+	
+}
+
+proc2 = () => {
+	multi = "234567892345"
+	sum = 0;
+	//입력 ABCDEF-GHIJKLM : 110325-1234567
+	input = prompt();
+	code = input.replace("-","");
+	
+	//A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합을 구한다.
+	for(i=0; i<multi.length; i++){
+		sum += multi.substr(i,1) * code.substr(i,1);	
+		
+	}
+	// 1번의 합을 11로 나눈 나머지를 구한다.
+	na = sum % 11;
+	
+	// 11에서 2번의 결과를 뺀다.
+	res = 11 - na;
+	
+	//3번의 결과가 0~9이면 값 그대로, 10이면 0, 11이면 1로 변환
+// 	if(res == 10) res = 0;
+// 	if(res == 11) res = 1;
+	
+	res = res % 10;
+	
+	//4번의 결과와 M자리의 값이 같으면 맞는 번호이다.
+	if(code.substr(code.length-1, 1) == res){
+		flag = "올바른번호";
+	}else{
+		flag = "틀린번호";
+	}
+	
+	//출력
+	str = "주번: " + input.substring(0,8)+"*******<br>"
+	str += flag + "<br>";
+	
+	document.getElementById('r2').innerHTML = str;
+}
+
+</script>
+</head>
+<body>
+
+<div class="box">
+<p><br>
+prompt로 주민등록번호를 입력 받아 생년월일과 성별, 나이를  <br>
+출력하는 프로그램을 작성하시오
+<br>
+<br>
+
+</p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+
+
+<div class="box">
+<p><br>
+ 주민등록번호를 입력 받아 주민등록번호의 유효성을 검사하는<br>
+프로그램을 작성하시오.(ABCDEF-GHIJKLM) <br>
+<br>
+<br>
+
+</p>
+
+<input type="button" value="ok" onclick="proc2()">
+<br>
+<br>
+<div class="result" id="r2"></div>
+</div>
+</body>
+</html>
