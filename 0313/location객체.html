@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script type="text/javascript">
+proc1 = () =>{
+	res = "protoco: " + location.protocol +"<br>";
+	res += "host: " + location.host +"<br>";
+	res += "hostname: " + location.hostname + "<br>";
+	res += "port: " + location.port + "<br>";
+	res += "href: " + location.href + "<br>";
+	res += "pathname: " + location.pathname + "<br>";
+	
+	document.getElementById('r1').innerHTML = res;
+	
+}
+
+proc2 = () =>{
+	location.href = "proc.jsp?id=엄준식";
+	
+}
+
+</script>
+
+<style type="text/css">
+
+span{
+	color : red;
+	font-size: 20px;
+}
+a{
+	color : red;
+	font-size: 1.5em;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<p></p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1"></div>
+</div>
+
+<div class="box">
+<p>
+&lt; input type="button" value="ok" <span> onclick="location.href='proc.jsp'"> </span>
+</p>
+
+<input type="button" value="ok" onclick="proc2()">
+<input type="button" value="ok" onclick="location.href='proc.jsp'">
+<input type="button" value="ok" onclick="location.href='proc.jsp?id=춘식'">
+<br>
+<br>
+<div class="result" id="r2"></div>
+</div>
+
+
+<div class="box">
+<p>
+<a href="proc.jsp?id=엄준식">List</a>
+ &nbsp;&nbsp;&nbsp;
+<a href="#" onclick="location.href='proc.jsp?id=김성수'"> List</a> 
+<br>
+<br>
+<a href="#" onclick="proc2()">List</a> 
+&nbsp;&nbsp;&nbsp;
+<a href="javascript:proc2()">List</a> 
+</p>
+
+<br>
+<br>
+<div class="result" id="r3"></div>
+</div>
+</body>
+</html>
