@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script src="../js/jquery-3.6.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+proc1 = () =>{
+	$('td:first-child').css('background', '#f198aa');
+	$('td:nth-child(2)').css('background', '#E08EB1');
+	$('td:nth-child(3)').css('background', '#ffdcff');
+	$('td:last-child').css('background', '#fff0f5');
+// 	$('tr:first-child').css('background', '#f198aa');
+// 	$('tr:nth-child(2)').css('background', '#E08EB1');
+// 	$('tr:nth-child(3)').css('background', '#ffdcff');
+// 	$('tr:last-child').css('background', '#fff0f5');
+	
+	//첫번째 줄에 있는 모든 td를 선택
+	$('tr:first-child td').css('background', 'black');
+	
+	
+}
+</script>
+<style type="text/css">
+table{
+	border: 1px solid blue;
+}
+td{
+	width: 250px;
+	height: 50px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<p></p>
+
+<input type="button" value="ok" onclick="proc1()">
+<br>
+<br>
+<div class="result" id="r1">
+<table border="1">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>		
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+		</tr>
+		
+	</table>
+
+</div>
+</div>
+</body>
+</html>

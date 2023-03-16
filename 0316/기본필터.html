@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script src="../js/jquery-3.6.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//$(document).ready(function(){
+	$(function(){
+		
+	$('#btn1').on('click',function(){
+		//$('li').css('border','2px dotted blue');
+		$('li:first, li:last').css('background', 'yellow');
+		
+		//$('li:eq(5)').css('background', 'red');
+		$('li').eq(5).css('background', 'red');
+		
+		//$('li:gt(4)').css('font-size', '2.0em');
+		$('li').filter(':lt(4)').css({'font-sizs':'2.0em', 'font-weight':'bold'});
+	})
+	
+	$('#btn2').on('click', function(){
+		$('tr').even().css('background', 'lightgreen');
+		$('tr').odd().css('background', 'pink');
+		
+		$('tr').first().css({'background':'black', 'color':'white', 'font-size':'1.5em', 'font-weight':'bold'});
+	})
+})
+</script>
+<style type="text/css">
+table{
+	border: 1px solid blue;
+}
+td{
+	width: 250px;
+	height: 50px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<p></p>
+
+<input type="button" value="ok" id="btn1">
+<br>
+<br>
+<div class="result" id="r1">
+	<ul>
+	<li> one </li>
+	<li> two </li>
+	<li> three </li>
+	<li> four </li>
+	<li> five </li>
+	<li> six</li>
+	<li> seven</li>
+	<li>eight</li>
+	<li>nine</li>
+	</ul>
+</div>
+</div>
+<br>
+<br>
+<div class="box">
+<p></p>
+
+<input type="button" value="ok" id="btn2">
+<br>
+<br>
+<div class="result" id="r2">
+	<table border="1">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>		
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+		</tr>
+		
+	</table>
+</div>
+</div>
+</body>
+</html>
