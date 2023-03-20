@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script src="../js/jquery-3.6.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#r1 p').on('click', function(){
+			$(this).addClass('font20');
+			//$(this).css('font-size', '2.0em');
+		})
+		
+		$('#r1 p').on('dblclick', function(){
+			$(this).removeClass('font20');
+		})
+		
+		$('#r2 p').on('mouseover', function(){
+			$(this).addClass('bcolor');
+		})
+		
+		$('#r2 p').on('mouseout', function(){
+			$(this).removeClass('bcolor');
+		})
+		$('#r3 p').on('click', function(){
+			$(this).toggleClass('font20');
+		})
+		$('#r4 p').on('click', function(){
+		if($(this).hasClass('bcolor')){
+				$(this).removeClass('bcolor');
+			}else{
+				$(this).addClass('bcolor');
+			}
+			
+		})
+	})
+</script>
+<style type="text/css">
+.font20{
+	font-size: 2.0em;
+}
+
+.bcolor{
+	background: lime;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<p>
+click: addClass('font20') <br>
+dblclick: removeClass('font20')
+
+</p>
+
+<br>
+<br>
+<div class="result" id="r1">
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+
+</div>
+</div>
+
+<div class="box">
+<p>
+mouseover: addClass('bcolor') <br>
+mouseout: removeClass('bcolor') 
+
+</p>
+
+<br>
+<br>
+<div class="result" id="r2">
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+
+</div>
+</div>
+
+<div class="box">
+<p>
+click: toggleClass('font20') <br>
+
+</p>
+
+<br>
+<br>
+<div class="result" id="r3">
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+
+</div>
+</div>
+<div class="box">
+<p>
+click: hasClass('bcolor') <br>
+
+</p>
+
+<br>
+<br>
+<div class="result" id="r4">
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+	<p>sadzxcsadqwe489465165</p>
+
+</div>
+</div>
+</body>
+</html>

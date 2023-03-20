@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#parent').on('click', function(){
+		$('#r1 span').parent().css({"color" : "red", "border" : "2px solid red"})
+	})
+	$('#parents').on('click', function(){
+		$('#r1 span').parents().css({"color" : "green", "border" : "2px solid green"})
+	})
+	$('#parents_sel').on('click', function(){
+		$('#r1 span').parents('.siblings').css({"color" : "black", "border" : "2px solid black"})
+	})
+	$('#parents_unt').on('click', function(){
+		$('#r1 span').parentsUntil('.siblings').css({"color" : "skyblue", "border" : "2px dotted skyblue"})
+	})
+	$('.rf').on('click', function(){
+		//$(this).prev().css('background', 'gold');
+		$(this).parents('ul').find('span').css('background', 'gold');
+	})
+})
+</script>
+<style>
+.siblings * { 
+  display: block;
+  border: 2px solid blue;
+  color: blue;
+  padding: 5px;
+  margin: 15px;
+}
+.start{
+	color: black;
+}
+div{
+height: 450px;
+}
+div.box{
+	height: auto;
+}
+div.result{
+	height: 90%;
+}
+.siblings{
+	height: 80%;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<p></p>
+
+<input type="button" value="parent" id="parent">
+<input type="button" value="parents" id="parents">
+<input type="button" value="sel" id="parents_sel">
+<input type="button" value="unt" id="parents_unt">
+<br>
+<br>
+<div class="result" id="r1">
+  <div style="width:500px;" class="siblings">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+        <button type="button" id="find1" class="rf">find_span1</button>
+      </li>
+    </ul>   
+  </div>
+</div>
+
+<div class="result" id="r2">
+  <div style="width:500px;" class="siblings">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+        <button type="button" id="find2" class="rf">find_span2</button>
+      </li>
+    </ul>   
+  </div>
+</div>
+</div>
+</body>
+</html>
