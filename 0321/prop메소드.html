@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/MyStyle.css">
+<script src="../js/jquery-3.6.4.min.js" type="text/javascript"></script>
+
+    <script>
+      $(function(){
+    	  $('#btn1').on('click', function(){
+    		  chk = $('#checkTest').prop('checked');
+    		  sel = $('#selTest option:eq(0)').prop('selected');
+    		  txt = $('#txtTest').prop('redaonly');
+    		  btn = $('#runBtn').prop('disabled');
+    		  
+    		  console.log(chk, sel, txt, btn);
+    		  
+    		  $('#checkTest').prop('checked', !chk);    		  
+    		  $('#selTest option:eq(0)').prop('selected', !sel);
+    		  $('#txtTest').prop('redaonly', !txt);
+    		  $('#runBtn').prop('disabled', !btn);
+    		  // 변경
+//     		  if(chk){
+//     			  $('#checkTest').prop('checked', false);
+//     		  }else{
+//     			  $('#checkTest').prop('checked', true);
+//     		  }
+//     		  if(chk){
+//     			  $('#selTest option:eq(0)').prop('selected', false);
+//     		  }else{
+//     			  $('#selTest option:eq(0)').prop('selected', true);
+//     		  }
+    		  	  
+    	  })
+//     	  $('#checkedall').on('click', function(){		  
+//     	  })
+    	  $('#checkall').on('change', function(){
+    		 chk =  $(this).prop('checked');
+    		 
+    		 $('.check').prop('checked', chk);
+    	  })
+    	  
+      })
+    </script>
+</head>
+<body>
+
+<div class="box">
+<p></p>
+
+<input type="button" value="ok" id="btn1">
+<br>
+<br>
+<div class="result" id="r1">
+       <form>
+          체크박스(라디오버튼) :
+          <input type="checkbox" id="checkTest" checked /><br /><br />
+          리스트박스(select객체) :
+          <select id="selTest">
+            <option value="1">하나</option>
+            <option value="2">둘</option>
+            <option value="3" selected="selected">셋</option>
+            <option value="4">넷</option>
+          </select>
+          <br /><br />
+          text객체 (readonly) :
+          <input type="text" value="가나다" id="txtTest" /><br /><br />
+          button객체(disabled) :
+          <input
+            type="button"
+            value="실행"
+            id="runBtn"
+            onclick="alert('hello')"
+          />
+        </form>
+</div>
+</div>
+<div class="box">
+<p></p>
+
+<br>
+<br>
+<div class="result" id="r2">
+	<input type="checkbox" id="checkall">전체선택
+	<input type="checkbox" class="check">1
+	<input type="checkbox" class="check">2
+	<input type="checkbox" class="check">3
+	<input type="checkbox" class="check">4
+	<input type="checkbox" class="check">5
+</div>
+</div>
+</body>
+</html>
