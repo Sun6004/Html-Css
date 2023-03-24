@@ -27,10 +27,6 @@ public class MemberServiceImpl implements MemverService{
 	
 	@Override
 	public List<MemberVO> getAllMember() {
-		List<MemberVO> list = null;
-		
-		list = dao.getAllMember();
- 		return null;
+ 		return dao.getAllMember();
 	}
-
 }
