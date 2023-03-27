@@ -11,7 +11,12 @@ public class BuyerDaoImpl implements BuyerDao{
 	
 	private static BuyerDao dao;
 	
-	private static BuyerDao getDao() {
+	private BuyerDaoImpl() {
+		
+	}
+	
+	@SuppressWarnings("unused")
+	public static BuyerDao getDao() {
 		if(dao == null) dao = new BuyerDaoImpl();
 		return dao;
 	}
@@ -33,10 +38,10 @@ public class BuyerDaoImpl implements BuyerDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		BuyerVO vo = null;
 		try {
-			vo = session.selectOne("buyer.selectById");
+			vo = session.selectOne("buyer.selectById", id);
 			
 		} finally {
-			session.commit();
+			//session.commit();
 			session.close();
 		}
 		return vo;

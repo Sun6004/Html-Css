@@ -10,20 +10,26 @@ public class BuyerServiceImpl implements BuyerService{
 	
 	private BuyerDao dao;
 	private static BuyerService service;
+	private BuyerServiceImpl () {
+		dao = BuyerDaoImpl.getDao();
+	}
 	
-	private BuyerServiceImpl() {
+	public static BuyerService getService() {
+		if(service ==null) service = new BuyerServiceImpl();
+		return service;
 	}
 	
 	@Override
 	public List<BuyerVO> selectIdName() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.selectIdName();
 	}
 
 	@Override
 	public BuyerVO selectById(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.selectById(id);
 	}
 	
 }
