@@ -16,7 +16,6 @@
             url : "http://localhost/jqPro/0324/lprodController.jsp",
 				type : 'get',
 				success : function(res){
-
                     code = "";
                     $.each(res, function(i, v){
                         //option을 작성
@@ -33,27 +32,85 @@
         // option의 value를 서버로 전송하여 prod리스트를 가져온다. - select-option으로 출력
         $('#lprod').on('change', function(){
             //option의 value 값
-
+            vgu = $(this).val();
+            
+            $.ajax({
+            	url : 'http://localhost/jpPro/ProdNames.do',
+            	type : 'post',
+            	data : {"guvalue" : vgu}, //
+            	success : function(res){
+            		code = "";
+                    if(res.flag == "ok"){
+                        $.each(res.data, function(i,v){
+                            code += `<option value="${v,id}>${v.name}<option>"`;
+                        })
+                    }else{
+                        code += `<option value="0">데이터없음</option>`
+                    }
+                    $('#prod').html(code);
+            	},
+            	error : function(xhr){
+            		alert("상태: " +xhr.status);
+            	},
+            	dataType : 'json'
+            })
         })
 
         // 3. prod리스트중 하나를 선택하면 option의 value(prod_id)값을 가져온다.
         // option의 value를 서버로 전송하여 prod_id와 일치하는 아이템의 상세보기를 출력
         $('#prod').on('change', function(){
              //option의 value 값
+             idvalue = $(this).val().trim();
+             
+             if(idvalue == "0"){
+            	 // result영역을 지운다
+            	 $('#result').empty();
+            	 // 데이터 없음의 이미지를 출력
+            	 $('<img src="../imiges/사막.jpg" alt="dd">');
+
+                 $(vimg).appendTo(vimg);
+
+            	 return false;
+             }
+             $.ajax({
+                data : {"prodId" : idvalue},
+                url : "/jqPro/ProdDetail.do",
+                type : 'post',
+                error : function(xhr){
+                    alert("상태: " + xhr.status);
+                },
+                success : function(res){
+                    code = "<table>";
+                    
+                    code += "<tr><td>PROD_ID</td>";
+                    //code +="<td>" res.id+"</td></tr>";
+                }
+             })
         })
     })
 
 </script>
 
+<style type="text/css">
+form{
+	border: 2px solid blue;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+</style>
 </head>
 <body>
 
 <div class="box">
 <p></p>
-
-<select id="lprod"><!-- <option value="p101">컴퓨터제품</option> -->
-    <option value="p101">컴퓨터제품</option>
-    <option value="p102">전자제품</option>
+<form action=""></form>
+<select id="lprod">
+	<!-- <option value="p101">컴퓨터제품</option> -->
+	<!--     <option value="p101">컴퓨터제품</option> -->
+	<!--     <option value="p102">전자제품</option> -->
+	
 </select> 
 <select id="prod">
 

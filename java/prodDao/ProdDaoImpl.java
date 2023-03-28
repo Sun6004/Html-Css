@@ -10,32 +10,44 @@ import prodVo.ProdVO;
 
 public class ProdDaoImpl implements ProdDao{
 
-	private SqlSessionFactory sessionFactory;
 	private static ProdDao dao;
-	
-	//생성자
+
 	private ProdDaoImpl() {
-		sessionFactory = MybatisSqlsessionFactory.getSessionFactory();
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static ProdDao getDao() {
-		if(dao == null) dao = new ProdDaoImpl();
+		if (dao == null)
+			dao = new ProdDaoImpl();
 		return dao;
 	}
-	@Override
-	public List<ProdVO> getAllProd() {
-		SqlSession session = null;
+
+	public List<ProdVO> selectProdList(String prod_gu) {
+		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		List<ProdVO> list = null;
+
 		try {
-			session = MybatisSqlsessionFactory.getSqlSession();
-			list = session.selectList("prod.getAllProd");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			session.close();
+			list = session.selectList("prod.selectProdList",prod_gu);
+		} finally {
 			session.commit();
+			session.close();
 		}
-		return null;
+		return list;
 	}
+
+	@Override
+	public ProdVO prodByDetail(String prod_id) {
+		// TODO Auto-generated method stub
+		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
+		ProdVO vo = null;
+		
+		try {
+			vo = session.selectOne("prod.prodBByDetail",prod_id);
+		} finally {
+			session.close();
+		}
+		return vo;
+	}
+
 
 }
