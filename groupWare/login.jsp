@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -36,11 +35,11 @@
 		    if(id.equals("admin")){
 		        // 어드민 로그인
 				out.println("<script>alert('관리자 로그인 입니다.');</script>");
-				out.println("<script>location.href='Main.jsp'</script>");
+				out.println("<script>location.href=''</script>");
 		    } else {
 		        // 일반 유저 로그인
 				out.println("<script>alert('로그인 되었습니다.');</script>");
-				out.println("<script>location.href='Main.jsp'</script>");
+				out.println("<script>location.href=''</script>");
 		    }
 // 		    session.setAttribute("login", result);
 // 		    session.setAttribute("id", id);

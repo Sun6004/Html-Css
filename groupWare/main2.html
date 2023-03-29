@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #top-menu {
+        background: red;
+        height: 50px;
+        width: 100%;
+        /* position: absolute; */
+        display: flex;
+        z-index: 0;
+      }
+
+      #left-menu {
+        background: gray;
+        position: absolute;
+        display: flex;
+        height: 800px;
+        width: 100px;
+        z-index: 99;
+      }
+      h1 {
+        /* position: absolute; */
+        /* display: flex; */
+        z-index: 100;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="top-menu">1</div>
+      <h1>qwe</h1>
+      <div id="left-menu">2</div>
+    </div>
+  </body>
+</html>
