@@ -12,8 +12,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <title>DDIT 그룹웨에</title>
-    <link rel="stylesheet" href="../css/style.css" />
+
+    <title>DDIT 그룹웨어</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
@@ -28,13 +29,14 @@
     </header>
 
     <div class="wrapper">
+      <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
       <div class="form-box login">
         <h2>Login</h2>
         <form action="#">
           <div class="input-box">
             <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
             <input type="emil" required />
-            <label for="">Email</label>
+            <label for="">아이디</label>
           </div>
 
           <div class="input-box">
@@ -42,14 +44,50 @@
               ><ion-icon name="lock-closed-outline"></ion-icon
             ></span>
             <input type="password" required />
-            <label for="">Password</label>
+            <label for="">비밀번호</label>
           </div>
           <div class="remember-forgot">
-            <label><input type="checkbox" />Remeber ID</label>
+            <label><input type="checkbox" />아이디 저장</label>
           </div>
           <button type="submit" class="btn">Login</button>
+          <div class="login-register">
+            <p><a href="#" class="register-link">회원가입</a></p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"
+              ><ion-icon name="person-outline"></ion-icon
+            ></span>
+            <input type="emil" required />
+            <label for="">이 름</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input type="emil" required />
+            <label for="">아이디</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon"
+              ><ion-icon name="lock-closed-outline"></ion-icon
+            ></span>
+            <input type="password" required />
+            <label for="">비밀번호</label>
+          </div>
+          <div class="remember-forgot"></div>
+          <button type="submit" class="btn">Register</button>
+          <div class="login-register">
+            <p><a href="#" class="login-link">로그인</a></p>
+          </div>
         </form>
       </div>
     </div>
+    <script src="../js/script.js"></script>
   </body>
 </html>
