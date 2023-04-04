@@ -3,8 +3,8 @@ package board.dao;
 import java.util.List;
 import java.util.Map;
 
-import borad.vo.BoardVO;
-import borad.vo.ReplyVO;
+import board.vo.BoardVO;
+import board.vo.ReplyVO;
 
 public interface IBoardDao {
 	//글쓰기 -실행된 행의 개수리턴 - 시퀀스값을 리턴

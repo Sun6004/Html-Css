@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import borad.vo.BoardVO;
-import borad.vo.ReplyVO;
+import board.vo.BoardVO;
+import board.vo.ReplyVO;
 import kr.or.ddit.mybatis.config.MybatisSqlsessionFactory;
 
 public class BoardDaoImpl implements IBoardDao{
@@ -138,7 +138,7 @@ public class BoardDaoImpl implements IBoardDao{
 			session.commit();
 			session.close();
 		}
-		return 0;
+		return res;
 	}
 	
 }

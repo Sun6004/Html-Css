@@ -6,9 +6,9 @@ import java.util.Map;
 
 import board.dao.BoardDaoImpl;
 import board.dao.IBoardDao;
-import borad.vo.BoardVO;
-import borad.vo.PageVO;
-import borad.vo.ReplyVO;
+import board.vo.BoardVO;
+import board.vo.PageVO;
+import board.vo.ReplyVO;
 
 public class BoardServiceImpl implements IBoardService{
 	//dao 객체
@@ -92,10 +92,28 @@ public class BoardServiceImpl implements IBoardService{
 		int count = this.totalCount(map);
 		
 		// 전체 페이지 수 구하기
-		int totalPage = count / PageVO.getPerList();
+		int totalPage = (int)Math.ceil((double)count / PageVO.getPerList());
 		
+		//start, end 구하기
+		int start = (page-1) * PageVO.getPerList() + 1;
+		int end = start + PageVO.getPerList()-1;
 		
-		return null;
+		if(end > count) end = count;
+		
+		int perPage = PageVO.getPerPage();
+		// 시작/끝 페이지
+		int startPage = ((page -1) /perPage * perPage)+1;
+		int endPage = startPage + perPage -1;
+		if(endPage > totalPage) endPage = totalPage;
+		
+		PageVO vo = new PageVO();
+		vo.setStart(start);
+		vo.setEnd(end);
+		vo.setStartPage(startPage);
+		vo.setEndPage(endPage);
+		vo.setTotalPage(totalPage);
+		
+		return vo;
 	}
 	
 }

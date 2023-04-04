@@ -3,9 +3,9 @@ package board.service;
 import java.util.List;
 import java.util.Map;
 
-import borad.vo.BoardVO;
-import borad.vo.PageVO;
-import borad.vo.ReplyVO;
+import board.vo.BoardVO;
+import board.vo.PageVO;
+import board.vo.ReplyVO;
 
 public interface IBoardService {
 	
