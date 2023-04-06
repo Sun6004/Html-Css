@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import kr.or.ddit.member.vo.MemberVO;
+import kr.or.ddit.member.vo.ZipVo;
 import kr.or.ddit.mybatis.config.MybatisSqlsessionFactory;
 
 /*
@@ -57,5 +58,44 @@ public class MemberDaoImpl implements MemverDao{
 //		}
 //		return a;
 //	}
+
+	@Override
+	public int insertMember(MemberVO vo) {
+		int cnt = 0;
+		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
+		try {
+			cnt = session.insert("member.insertMember",vo);
+		} finally {
+			session.commit(); 
+			session.close();
+		}
+		return cnt;
+	}
+
+	@Override
+	public String idCheck(String id) {
+		String res = null;
+		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
+		try {
+			res = session.selectOne("member.idCheck",id);
+		} finally {
+			session.commit();
+			session.close();
+		}	
+		return res;
+	}
+
+	@Override
+	public List<ZipVo> selectByDong(String dong) {
+		List<ZipVo> list = null;
+		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
+		try {
+			list = session.selectList("member.selectByDong",dong);
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return list;
+	}                                                                                                                                                                                                                                                                                                                                                                                                                                    
 	
 }
