@@ -17,6 +17,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="../js/board.js"  type="text/javascript"></script>
+<script src="../js/jquery.serializejson.min.js"  type="text/javascript"></script>
 
 <style>
 *{
@@ -58,6 +59,8 @@ mypath = '<%= request.getContextPath()%>';
 
 console.log(mypath);
 
+reply = { }; //동적으로 속성과 기능을 추가 가능 (reply.name = "" / reply.bonum = 31)
+
   $(function(){
 	  $.listPageServer(1);
 	  
@@ -80,25 +83,189 @@ console.log(mypath);
 		  $.listPageServer(currentPage);
 		  
 	  })
+	  
+	  // 페이지 번호 클릭했을때
+	  $(document).on('click', '.pageno', function(){
+			currentPage = $(this).text().trim();
+			$.listPageServer(currentPage);
+	  })
+	  
+	  // 검색 search 클릭
+	  $('#search').on('click', function(){
+			$.listPageServer(currentPage);
+	  })
+	  
+	  // 글쓰기 버튼에서 설정
+// 	  $('#write').on('click', function(){
+// 	 		$('#wModal').modal('show'); 	
+	  
+// 	  })
+		// 글쓰기 Modal창에서 send 전송 버튼 클릭
+		$('#send').on('click', function(){
+			  //입력한 모든 값을 가져온다.
+			  fdata = $('form').serializeJSON();
+			  
+			  console.log(fdata);
+			  
+			  $('#wform .txt').val("");
+			  $('#wModal').modal('hide');
+			  
+			  // 서버로 전송하기
+			  $.boardWriteServer();
+		  })
+		  
+		  // 수정 삭제 등록 댓글수정 댓글삭제, 제목클릭--- 이벤트
+		  $(document).on('click', '.action', function(){
+			  vaction = $(this).attr('name');
+			  vidx = $(this).attr('idx');
+			  
+			  if(vaction == "modify"){
+				  alert(vidx + "번 글 수정");
+			  }else if(vaction == "delete"){
+				  alert(vidx + "번 글 삭제");
+			  }else if(vaction=="list"){
+				  //alert(vidx + "번 글과 댓글을 모두 보기")
+				  $.replyListServer(this);
+				  
+			  }else if(vaction == "reply"){
+				  //alert(vidx + "번 글에 댓글 등록");
+				  
+				console.log($(this).prev().val());
+				
+				cont = $(this).prev().val()
+				name1 =String.fromCharCode( parseInt(Math.random *26 + 65)); // 대문자 A~Z
+				name2 =String.fromCharCode( parseInt(Math.random *26 + 97)); // 소문자 A~Z
+				name3 = parseInt(Math.random()*100 + 1);
+				
+				
+				reply.name = name1 + name2 + name3;
+				reply.cont = cont;
+				reply.bonum = vidx;
+				
+				$(this).prev().val("");
+				
+				// 서버로 전송
+				$.replyWriteServer(this);
+				
+				
+			  }else if(vaction == "r_modify"){
+				  alert(vidx + "번 댓글 수정");
+			  }else if(vaction == "r_delete"){ㅐ
+				  alert(vidx + "번 댓글 삭제");	  
+			  }
+		  })
   })
 </script>
 
+<style type="text/css">
+nav a{
+/* 	display: none; */
+	visibility: hidden;
+}
+#stype{
+	width: 100px;
+}
+
+#sword{
+	width: 200px;
+}
+label{
+	display: inline-block;
+	width: 80;
+	height: 30;
+}
+
+.reply-body{
+	background: #f1faad;
+	border: 1px solid gold;
+	margin: 1px;
+	padding: 5px;
+}
+</style>
+
 </head>
 <body>
-
-
-  <div id="result"></div>
-  <br><br>
-  <div id="pagelist"></div>
+	<input type="button" value="글쓰기" id="write" data-bs-toggle="modal" data-bs-target="#wModal">
+	
+	<br><br>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	  <div class="container-fluid">
+<!-- 	    <a class="navbar-brand" href="javascript:void(0)">게시판</a> -->
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="mynavbar">
+	      <ul class="navbar-nav me-auto">
+	        <li class="nav-item">
+<!-- 	          <a class="nav-link" href="javascript:void(0)"></a> -->
+	        </li>
+	        <li class="nav-item">
+<!-- 	          <a class="nav-link" href="javascript:void(0)">Link</a> -->
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="javascript:void(0)">Link</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex">
+	      	<select class="form-select" id="stype">
+			  <option value="">전체</option>
+			  <option value="writer">이름</option>
+			  <option value="subject">제목</option>
+			  <option value="content">내용</option>
+			</select>
+			
+	        <input class="form-control me-2" type="text" id="sword" placeholder="Search">
+	        <button class="btn btn-primary" type="button" id="search">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+	<br><br>
+	
+	<div id="result"></div>
+	<br><br>
+	<div id="pagelist"></div>
+	
+	<!-- 글쓰기 Modal -->
+	<div class="modal" id="wModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 class="modal-title">Modal Heading</h4>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body">
+	        <form name="wform" id="wform">
+	        	<label>이름</label>
+	        	<input type="text" class="txt" name="writer"> <br>
+	        	<label>제목</label>
+	        	<input type="text" class="txt" name="subject"> <br>
+	        	<label>메일</label>
+	        	<input type="text" class="txt" name="mail"> <br>
+	        	<label>비밀번호</label>
+	        	<input type="password" class="txt" name="password"> <br>
+	        	<label>내용</label>
+	        	<br>
+	        	<textarea rows="5" class="txt" cols="40" name="content"></textarea> <br>
+	        	<br>
+	        	<input type="button" value="전송" id="send"> <br>
+	        	
+	        </form>
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	      </div>
+	
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
