@@ -29,7 +29,9 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.insert("board.insertBoard",vo);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
 			session.commit();
 			session.close();
 		}
@@ -42,7 +44,9 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.delete("board.deleteBoard", num);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
 			session.commit();
 			session.close();
 		}
@@ -55,7 +59,9 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.update("board.updateBoard", vo);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
 			session.commit();
 			session.close();
 		}
@@ -68,7 +74,9 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.update("board.updateHit", num);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
 			session.commit();
 			session.close();
 		}
@@ -82,7 +90,10 @@ public class BoardDaoImpl implements IBoardDao{
 
 		try {
 			list = session.selectList("board.selectByPage", map);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		} 
+		finally {
 			session.commit();
 			session.close();
 		}
@@ -95,7 +106,10 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.insert("board.insertReply", vo);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		} 
+		finally {
 			session.commit();
 			session.close();
 		}
@@ -108,7 +122,11 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.delete("board.deleteReply", renum);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		finally {
 			session.commit();
 			session.close();
 		}
@@ -121,7 +139,10 @@ public class BoardDaoImpl implements IBoardDao{
 		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
 		try {
 			res = session.update("board.updateReply", vo);
-		} finally {
+		}catch (Exception e) {
+			e.printStackTrace();
+		} 
+		finally {
 			session.commit();
 			session.close();
 		}
@@ -139,6 +160,21 @@ public class BoardDaoImpl implements IBoardDao{
 			session.close();
 		}
 		return res;
+	}
+
+	@Override
+	public List<ReplyVO> selectReply(int bonum) {
+		List<ReplyVO> list = null;
+		SqlSession session = MybatisSqlsessionFactory.getSqlSession();
+		
+		try {
+			list = session.selectList("board.selectReply",bonum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.commit();
+			session.close();
+		}
+		return list;
 	}
 	
 }

@@ -60,8 +60,7 @@ public class BoardServiceImpl implements IBoardService{
 
 	@Override
 	public int insertReply(ReplyVO vo) {
-		// TODO Auto-generated method stub
-		return dao.insertBoard(null);
+		return dao.insertReply(vo);
 	}
 
 	@Override
@@ -114,6 +113,12 @@ public class BoardServiceImpl implements IBoardService{
 		vo.setTotalPage(totalPage);
 		
 		return vo;
+	}
+
+	@Override
+	public List<ReplyVO> selectReply(int bonum) {
+		// TODO Auto-generated method stub
+		return dao.selectReply(bonum);
 	}
 	
 }

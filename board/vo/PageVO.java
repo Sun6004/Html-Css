@@ -10,8 +10,8 @@ public class PageVO {
 	private int count;
 	
 	// 글쓰기/삭제 등 할때마다 봐뀌기 때문에 static
-	private static int perList = 3;
-	private static int perPage = 2;
+	private static int perList = 5;
+	private static int perPage = 3;
 	
 	
 	public int getStart() {
